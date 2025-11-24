@@ -3,8 +3,11 @@ import requests
 
 class Scraper:
 
-    def getAcademicCalander():
-        url =  "https://www.xula.edu/academics/academiccalendar/index.html"
+    def getAcademicCalander(set_url=None):
+        if(set_url == None):
+            url =  "https://www.xula.edu/academics/academiccalendar/index.html"
+        else:
+            url = set_url
         headers = {
             "User-Agent": "Mozilla/5.0"
         }
@@ -42,7 +45,7 @@ class Scraper:
                 elif(month in springMonths):
                     date_map.setdefault("Spring Semester",[]).append(c)
                 elif(month in summerMonths):
-                    date_map.setdefault("Summer Summester",[]).append(c)
+                    date_map.setdefault("Summer Semester",[]).append(c)
                  
             
             return date_map
