@@ -79,11 +79,6 @@ class ScaperTest(unittest.TestCase):
         }
 
         self.assertEqual(results, expected)
-
-    
         
-
-
-
 if __name__=='__main__':
     unittest.main()
