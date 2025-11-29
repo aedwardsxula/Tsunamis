@@ -8,11 +8,12 @@ from drop_slip import DropSlip, write_drop_slip_to_file
 
 class Driver:
 
-    def main():
+    def main(self):
         print("Welcome to the Tsunamis CPSC Help Desk!\n")
         print("1) Find the drop date for your semester")
         print("2) Look up a course CRN, prerequisites, and add/drop dates")
-        choice = input("Enter your choice (1 or 2): ").strip()
+        print("3) Create a drop slip for a course")
+        choice = input("Enter your choice (1 or 2 or 3): ").strip()
 
         if choice == "1":
             select_soup = Scraper.getAcademicCalander()
@@ -29,8 +30,13 @@ class Driver:
 
         elif choice == "2":
             run_crn_lookup()
+
+        elif choice == "3":
+            self.create_drop_slip()
         else:
-            print("Invalid choice.")
+             print(" Invalid choice.")
+
+
 
     def create_drop_slip(self):
         student_name = input("Enter your full name: ").strip()
@@ -53,5 +59,6 @@ class Driver:
 
     
     
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    driver = Driver()
+    driver.main()

@@ -17,7 +17,7 @@ class DropSlip:
             f"Title: {self.course.get('title', '')}\n"
             f"Days: {self.course.get('days', '')}\n"
             f"Time: {self.course.get('time', '')}\n\n"
-            "Student Signature: ______________________________\n"
+            "Student Signature: ________________________\n"
             "Date: _______________\n"
         )
 
