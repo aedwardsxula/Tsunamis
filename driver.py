@@ -9,35 +9,52 @@ from resources import load_default_resources, get_drop_deadline_info, load_profe
 class Driver:
 
     def main(self):
-        print("Welcome to the Tsunamis CPSC Help Desk!\n")
-        print("1) Find the drop date for your semester")
-        print("2) Look up a course CRN, prerequisites, and add/drop dates")
-        print("3) Create a drop slip for a course")
-        choice = input("Enter your choice (1 or 2 or 3): ").strip()
+        while True:
+            print("\nWelcome to the Tsunamis CPSC Help Desk!\n")
+            print("1) Find the drop date for your semester")
+            print("2) Look up a course CRN, prerequisites, and add/drop dates")
+            print("3) Create a drop slip for a course")
+            print("4) Calculate my GPA")
+            print("5) Check if a course is offered this semester")
+            print("0) Exit")
+            choice = input("Enter your choice: ").strip()
 
-        if choice == "1":
-            select_soup = Scraper.getAcademicCalander()
-            semesterDropDates = Scraper.getDropDates(select_soup)
+            if choice == "1":
+                self.show_drop_dates()
+            elif choice == "2":
+                run_crn_lookup()
+            elif choice == "3":
+                self.create_drop_slip()
+            elif choice == "4":
+                run_gpa_calculator()
+            elif choice == "5":
+                self.run_course_offering_check()
+            elif choice == "0":
+                print("\nGoodbye from the Tsunamis CPSC Help Desk!\n")
+                break
+            else:
+                print("\nInvalid choice. Please try again.\n")
 
-            print("\nFind the drop date for your semester!")
-            usrchoice = input("Which semester are you looking for? (Fall/Spring/Summer): ")
-            print("\n")
+    # ==== existing feature: drop dates ====
+    def show_drop_dates(self):
+        select_soup = Scraper.getAcademicCalander()
+        semesterDropDates = Scraper.getDropDates(select_soup)
 
-            for key, values in semesterDropDates.items():
-                if usrchoice.lower() in key.lower():
-                    for value in values:
-                        print("Drop Dates: ", value)
+        print("\nFind the drop date for your semester!")
+        usrchoice = input("Which semester are you looking for? (Fall/Spring/Summer): ")
+        print()
 
-        elif choice == "2":
-            run_crn_lookup()
+        found = False
+        for key, values in semesterDropDates.items():
+            if usrchoice.lower() in key.lower():
+                found = True
+                for value in values:
+                    print("Drop Dates:", value)
 
-        elif choice == "3":
-            self.create_drop_slip()
-        else:
-             print(" Invalid choice.")
+        if not found:
+            print("Sorry, no drop dates found for that semester.")
 
-
-
+    # ==== existing feature: drop slip ====
     def create_drop_slip(self):
         student_name = input("Enter your full name: ").strip()
         student_id = input("Enter your student ID: ").strip()
@@ -57,7 +74,6 @@ class Driver:
 
         print("Drop slip created:", filename)
 
-    from resources import load_default_resources
 
 def show_resources_menu() -> None:
     """Display all quick-links with numbers a student can choose from."""

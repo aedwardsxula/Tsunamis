@@ -1,5 +1,5 @@
 # course_search.py
-# Tsunamis – CPSC Help Desk
+# Tsunamis – CPSC Help Desk 
 # Implements user story:
 # "As a student, I want the app to check whether a course is offered
 #  this semester so that I know if I can take it."
