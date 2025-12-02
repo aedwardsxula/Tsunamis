@@ -19,3 +19,11 @@ class TestSchedule(unittest.TestCase):
         s.add_course(course)
 
         self.assertTrue(s.is_registered_for("10002"))
+    
+    def test_is_registered_false(self):
+        s = Schedule("001", "Austin")
+        course = {"crn": "10002", "title": "Math"}
+
+        s.add_course(course)
+
+        self.assertFalse(s.is_registered_for("100"))
