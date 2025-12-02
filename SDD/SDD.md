@@ -8,17 +8,17 @@
 The CPSC Help Desk is a command-line application designed for Xavier University students.
 It helps students quickly access academic information such as:
 
-* GPA calculation
+* GPA calculation 
 * Course offering availability
 * CRN lookup and course info
 * Drop deadlines
 * Drop slip creation
-* Professor contacts and academic resources
+* Professor contacts and academic resources  
 ---
 
 # **2. System Overview**
 The Help Desk currently supports these major features:
-1. Drop Deadline Checker – scrapes XULA academic dates
+1. Drop Deadline Checker – scrapes XULA academic dates S
 2. CRN Lookup – finds course info based on CRN
 3. Drop Slip Generator – outputs formatted drop slip file
 4. GPA Calculator – calculates weighted GPA
