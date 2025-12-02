@@ -43,3 +43,14 @@ class TestSchedule(unittest.TestCase):
         self.assertEqual(course["crn"], "10001")
         self.assertEqual(course["subject"], "Math")
         self.assertEqual(course["course_number"], "MATH 1090")
+
+    def test_load_course_from_csv_course_not_found(self):
+        sample_csv = (
+            "CRN,SUBJ,CRSE,TITLE,DAYS,TIME\n"
+            "10001,Math,MATH 1090,Calculus 2, M/W/F, 10:00-10:50\n"
+            "20002,Computer Science,CPSC 3140,Data Structures, T/Th, 11:00-11:50\n"
+        )
+        with patch("builtins.open", mock_open(read_data=sample_csv)):
+            course = load_course_from_csv("30003", csv_path="fakeCSV.csv")
+
+        self.assertIsNone(course)
