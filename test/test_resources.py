@@ -1,7 +1,7 @@
 import unittest
 import requests
 from unittest.mock import patch, MagicMock
-from resources import Resource, load_default_resources
+from help_desk.resources import Resource, load_default_resources
 
 
 class TestResources(unittest.TestCase):

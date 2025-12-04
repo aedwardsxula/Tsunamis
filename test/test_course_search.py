@@ -1,5 +1,5 @@
 import unittest
-from course_search import (
+from help_desk.course_search import (
     Course,
     CURRENT_SEMESTER,
     COURSE_OFFERINGS,

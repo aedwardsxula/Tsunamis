@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from crn_check import Course, load_courses, filter_by_subject, select_course
+from help_desk.crn_check import Course, load_courses, filter_by_subject, select_course
 
 
 class TestCrnCheck(unittest.TestCase):

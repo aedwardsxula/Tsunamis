@@ -1,5 +1,5 @@
 import unittest
-from schedule import Schedule, load_course_from_csv
+from help_desk.schedule import Schedule, load_course_from_csv
 from unittest.mock import mock_open, patch
 
 

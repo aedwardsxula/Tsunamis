@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import mock_open, patch
-from drop_slip import DropSlip, write_drop_slip_to_file
+from help_desk.drop_slip import DropSlip, write_drop_slip_to_file
 
 class TestDropSlip(unittest.TestCase):
 

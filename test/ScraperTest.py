@@ -1,6 +1,6 @@
 import unittest
 import requests
-from PerformScraping import Scraper
+from help_desk.PerformScraping import Scraper
 from bs4 import BeautifulSoup
 from unittest.mock import patch, MagicMock
 

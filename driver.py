@@ -1,10 +1,10 @@
-from PerformScraping import Scraper
-from crn_check import run_crn_lookup
-from schedule import Schedule, load_course_from_csv
-from drop_slip import DropSlip, write_drop_slip_to_file
-from resources import load_default_resources, get_drop_deadline_info, load_professor_contacts
+from help_desk.PerformScraping import Scraper
+from help_desk.crn_check import run_crn_lookup
+from help_desk.schedule import Schedule, load_course_from_csv
+from help_desk.drop_slip import DropSlip, write_drop_slip_to_file
+from help_desk.resources import load_default_resources, get_drop_deadline_info, load_professor_contacts
 from gpa_calculator import run_gpa_calculator
-from course_search import search_course_offerings
+from help_desk.course_search import search_course_offerings
 
 
 
