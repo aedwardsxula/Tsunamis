@@ -1,5 +1,7 @@
 import unittest
-from help_desk.schedule import Schedule, load_course_from_csv
+from unittest import TestCase
+from pathlib import Path
+from help_desk.schedule import Schedule, load_course_from_csv, COURSE_DATA_PATH
 from unittest.mock import mock_open, patch
 
 
@@ -33,11 +35,11 @@ class TestSchedule(unittest.TestCase):
     def test_load_course_from_csv_course_found(self):
         sample_csv = (
             "CRN,SUBJ,CRSE,TITLE,DAYS,TIME\n"
-            "10001,Math,MATH 1090,Calculus 2, M/W/F, 10:00-10:50\n"
-            "20002,Computer Science,CPSC 3140,Data Structures, T/Th, 11:00-11:50\n"
+            "10001,Math,MATH 1090,Calculus 2,M/W/F,10:00-10:50\n"
+            "20002,Computer Science,CPSC 3140,Data Structures,T/Th,11:00-11:50\n"
         )
-        with patch("builtins.open", mock_open(read_data=sample_csv)):
-            course = load_course_from_csv("10001", csv_path="fakeCSV.csv")
+        with patch("help_desk.schedule.open", mock_open(read_data=sample_csv)) as mock_file:
+            course = load_course_from_csv("10001", csv_path=COURSE_DATA_PATH)
         
         self.assertIsNotNone(course)
         self.assertEqual(course["crn"], "10001")
