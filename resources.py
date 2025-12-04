@@ -1,6 +1,8 @@
 # resources.py
 from dataclasses import dataclass
 from typing import List
+from pathlib import Path
+import json
 
 @dataclass
 class Resource:
@@ -67,4 +69,14 @@ def load_professor_contacts() -> dict:
             "office_hours": "MW 2–4PM"
         }
     }
+DATA_FILE = Path("data") / "resources.json"
 
+def load_resources_from_json() -> List[Resource]:
+    """Load resource links from JSON file."""
+    if not DATA_FILE.exists():
+        raise FileNotFoundError("resources.json not found.")
+
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        raw = json.load(f)
+
+    return [Resource(**item) for item in raw]

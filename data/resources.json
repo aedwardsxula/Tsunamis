@@ -1,0 +1,14 @@
+[
+    {
+        "name": "XULA Academic Calendar",
+        "url": "https://www.xula.edu/academics/calendar",
+        "category": "Academics",
+        "icon": "calendar"
+    },
+    {
+        "name": "Drop Deadline Calendar",
+        "url": "https://www.xula.edu/registrar",
+        "category": "Academics",
+        "icon": "deadline"
+    }
+]
