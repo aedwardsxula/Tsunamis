@@ -1,5 +1,21 @@
 # Tsunamis
 
+## What happens when Dr. Edwards runs your code ($ python main.py)
+
+```
+Traceback (most recent call last):
+  File "/Users/aedwards/ae/Teach/202508/2740/251201_A8_XULA/Tsunamis/driver.py", line 1, in <module>
+    from PerformScraping import Scraper
+  File "/Users/aedwards/ae/Teach/202508/2740/251201_A8_XULA/Tsunamis/PerformScraping.py", line 1, in <module>
+    from bs4 import BeautifulSoup
+ModuleNotFoundError: No module named 'bs4'
+```
+
+## What happens when Dr. Edwards runs your tests ($ python main.py)
+
+No instructions were provided for how to run your test.
+
+
 ## Final Release Checklist
 - [ ] README states purpose, contributors, and how to build, run, and test all the code from the CLI.  Build and run should not assume everyone is using a particular IDE (so don't assume users can click a Run button or use VSC's Command Prompt commands.
 - [ ] SDD has the project description, outline, architecture (including UML class diagrams), and all project user stories and use cases.
