@@ -23,13 +23,13 @@ def load_course_from_csv(crn, csv_path=COURSE_DATA_PATH):
     with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row.get("CRN") == crn:
+            if row.get("crn") == crn:
                 return {
-                    "crn": row.get("CRN"),
-                    "subject": row.get("SUBJ"),
-                    "course_number": row.get("CRSE"),
-                    "title": row.get("TITLE"),
-                    "days": row.get("DAYS"),
-                    "time": row.get("TIME"),
+                    "crn": row.get("crn"),
+                    "subject": row.get("subject"),
+                    "course_number": row.get("number"),
+                    "title": row.get("title"),
+                    "days": row.get("days", "N/A"),
+                    "time": row.get("time", "N/A"),
                 }
     return None
