@@ -78,6 +78,7 @@ Commands to run tests:
   python -m unittest test.test_drop_slip  
   python -m unittest test.test_resources  
   python -m unittest test.test_schedule  
+  
 
 
 Purpose of the CPSC Help Desk Application
@@ -85,3 +86,8 @@ Purpose of the CPSC Help Desk Application
 The Tsunamis CPSC Help Desk is a command-line support tool designed to help Xavier University Computer Science students quickly access important academic information in one place. The purpose of the Help Desk is to streamline tasks that students commonly struggle with—such as checking course availability, finding drop deadlines, calculating GPA, locating professor contact information, and generating drop slips—without needing to navigate multiple university systems.
 
 This project centralizes real student needs into one unified application, offering reliable academic support directly from the terminal.
+
+Contributors
+Eric Butler Jr-team lead,designer
+Jayce Stevens- Tester
+Tre'Sure Trotter-SWE
