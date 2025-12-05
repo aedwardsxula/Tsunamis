@@ -18,18 +18,33 @@ class Schedule:
 
 COURSE_DATA_PATH = Path("data") / "courses.csv"
 
+
 def load_course_from_csv(crn, csv_path=COURSE_DATA_PATH):
-    crn = str(crn)
+    crn = str(crn).strip()
+
     with open(csv_path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+        reader = csv.reader(f)
+        headers = next(reader)
+
+        index = {h.strip().lower(): i for i, h in enumerate(headers)}
+
         for row in reader:
-            if row.get("CRN") == crn:
+            if not row:
+                continue  
+
+            row_crn = row[index["crn"]].strip()
+            if row_crn == crn:
                 return {
-                    "crn": row.get("CRN"),
-                    "subject": row.get("SUBJ"),
-                    "course_number": row.get("CRSE"),
-                    "title": row.get("TITLE"),
-                    "days": row.get("DAYS"),
-                    "time": row.get("TIME"),
+                    "crn": row[index["crn"]].strip(),
+                    "subject": row[index["subject"]].strip(),
+                    "course_number": row[index["number"]].strip(),
+                    "title": row[index["title"]].strip(),
+                    "prerequisites": row[index["prerequisites"]].strip(),
+                    "add_deadline": row[index["add_deadline"]].strip(),
+                    "drop_deadline": row[index["drop_deadline"]].strip(),
+                    "days": "",
+                    "time": "",
                 }
+
     return None
+
